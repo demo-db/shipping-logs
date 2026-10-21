@@ -1,0 +1,11 @@
+{
+  "format": "meaning/draft-1",
+  "id": "shipping-logs",
+  "name": "Shipping original logs",
+  "description": "Original immutable synthetic JSONL inGitDB collections. Baseline observations and two explicitly labelled future replay examples remain separate.",
+  "license": "CC0-1.0",
+  "models": {
+    "shipping-logs": "shipping-logs.modelspec.hcl"
+  },
+  "concepts": []
+}

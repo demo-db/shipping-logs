@@ -1,0 +1,320 @@
+{
+  "contractVersion": 1,
+  "database": {
+    "id": "shipping-logs",
+    "name": "Shipping original logs"
+  },
+  "source": {
+    "repository": "https://github.com/datatug/datatug-demo-project",
+    "revision": "cb841345e88d01229857b2bdb51cc07f4ef4bec7",
+    "introducedRevision": "38a51dda39d988f2d2bcf23703bd1a969d49f4a3",
+    "path": "demo-project-1/fixtures/shipping/manifest.json",
+    "license": "CC0-1.0",
+    "licenseFile": "LICENSE",
+    "notes": "Public synthetic training companion to Northwind; no real shipment or partner call is represented.",
+    "files": {
+      "baseline": {
+        "path": "ingitdb/collections/baseline/records.jsonl",
+        "sourcePath": "demo-project-1/fixtures/shipping/logs/base.jsonl",
+        "sha256": "5814c09c2821dcf5fb7c313d4416fadd71f62519ab8aafe01de0ac6e6a4db65e",
+        "bytes": 6873,
+        "rowCount": 29,
+        "classification": "baseline"
+      },
+      "recovery11045example": {
+        "path": "ingitdb/collections/recovery11045example/records.jsonl",
+        "sourcePath": "demo-project-1/fixtures/shipping/logs/recovery-11045.jsonl",
+        "sha256": "a03031230dfad126783e557b61631f1173dd6c5867f19e2758e971ffea716379",
+        "bytes": 704,
+        "rowCount": 3,
+        "classification": "recovery-example"
+      },
+      "recovery11062example": {
+        "path": "ingitdb/collections/recovery11062example/records.jsonl",
+        "sourcePath": "demo-project-1/fixtures/shipping/logs/recovery-11062.jsonl",
+        "sha256": "ab668b7a26e034d80486f6ea1d17f89c9b226f3a98e297bb3b80186cc65936a5",
+        "bytes": 704,
+        "rowCount": 3,
+        "classification": "recovery-example"
+      }
+    },
+    "sha256": "fd9c22c47ea5ab589e4e0b00a6bb2b86de6046a678d078684f7feb8422878ab1"
+  },
+  "tables": [
+    {
+      "name": "baseline",
+      "kind": "table",
+      "description": "Original baseline observations",
+      "columns": [
+        {
+          "name": "attempt_id",
+          "type": "string",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "clock_domain",
+          "type": "string",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "event_id",
+          "type": "string",
+          "nullable": false,
+          "primaryKey": true,
+          "primaryKeyPosition": 1,
+          "defaultValue": null
+        },
+        {
+          "name": "kind",
+          "type": "string",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "occurred_at",
+          "type": "string",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "order_id",
+          "type": "int",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "precision_ms",
+          "type": "int",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "sequence",
+          "type": "int",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "synthetic",
+          "type": "bool",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        }
+      ],
+      "primaryKey": [
+        {
+          "column": "event_id",
+          "position": 1
+        }
+      ],
+      "foreignKeys": [],
+      "uniqueKeys": [],
+      "uniqueIndexes": [],
+      "rowCount": 29,
+      "rows": [],
+      "modelEntity": "baseline"
+    },
+    {
+      "name": "recovery11045example",
+      "kind": "table",
+      "description": "Example replay for11045, not baseline observations",
+      "columns": [
+        {
+          "name": "attempt_id",
+          "type": "string",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "clock_domain",
+          "type": "string",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "event_id",
+          "type": "string",
+          "nullable": false,
+          "primaryKey": true,
+          "primaryKeyPosition": 1,
+          "defaultValue": null
+        },
+        {
+          "name": "kind",
+          "type": "string",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "occurred_at",
+          "type": "string",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "order_id",
+          "type": "int",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "precision_ms",
+          "type": "int",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "sequence",
+          "type": "int",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "synthetic",
+          "type": "bool",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        }
+      ],
+      "primaryKey": [
+        {
+          "column": "event_id",
+          "position": 1
+        }
+      ],
+      "foreignKeys": [],
+      "uniqueKeys": [],
+      "uniqueIndexes": [],
+      "rowCount": 3,
+      "rows": [],
+      "modelEntity": "recovery11045example"
+    },
+    {
+      "name": "recovery11062example",
+      "kind": "table",
+      "description": "Example replay for11062, not baseline observations",
+      "columns": [
+        {
+          "name": "attempt_id",
+          "type": "string",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "clock_domain",
+          "type": "string",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "event_id",
+          "type": "string",
+          "nullable": false,
+          "primaryKey": true,
+          "primaryKeyPosition": 1,
+          "defaultValue": null
+        },
+        {
+          "name": "kind",
+          "type": "string",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "occurred_at",
+          "type": "string",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "order_id",
+          "type": "int",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "precision_ms",
+          "type": "int",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "sequence",
+          "type": "int",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "synthetic",
+          "type": "bool",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        }
+      ],
+      "primaryKey": [
+        {
+          "column": "event_id",
+          "position": 1
+        }
+      ],
+      "foreignKeys": [],
+      "uniqueKeys": [],
+      "uniqueIndexes": [],
+      "rowCount": 3,
+      "rows": [],
+      "modelEntity": "recovery11062example"
+    }
+  ],
+  "sourceViews": [],
+  "preview": "native-api-only"
+}

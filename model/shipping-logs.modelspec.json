@@ -1,0 +1,139 @@
+{
+  "modelspec": "1.0-draft-2",
+  "module": {
+    "id": "shipping-logs",
+    "name": "shipping_logs",
+    "version": "0.1.0"
+  },
+  "records": {
+    "baseline": {
+      "key": [
+        "event_id"
+      ],
+      "fields": {
+        "attempt_id": {
+          "required": true,
+          "type": "string"
+        },
+        "clock_domain": {
+          "required": true,
+          "type": "string"
+        },
+        "event_id": {
+          "required": true,
+          "type": "string"
+        },
+        "kind": {
+          "required": true,
+          "type": "string"
+        },
+        "occurred_at": {
+          "required": true,
+          "type": "string"
+        },
+        "order_id": {
+          "required": true,
+          "type": "int"
+        },
+        "precision_ms": {
+          "required": true,
+          "type": "int"
+        },
+        "sequence": {
+          "required": true,
+          "type": "int"
+        },
+        "synthetic": {
+          "required": true,
+          "type": "bool"
+        }
+      }
+    },
+    "recovery11045example": {
+      "key": [
+        "event_id"
+      ],
+      "fields": {
+        "attempt_id": {
+          "required": true,
+          "type": "string"
+        },
+        "clock_domain": {
+          "required": true,
+          "type": "string"
+        },
+        "event_id": {
+          "required": true,
+          "type": "string"
+        },
+        "kind": {
+          "required": true,
+          "type": "string"
+        },
+        "occurred_at": {
+          "required": true,
+          "type": "string"
+        },
+        "order_id": {
+          "required": true,
+          "type": "int"
+        },
+        "precision_ms": {
+          "required": true,
+          "type": "int"
+        },
+        "sequence": {
+          "required": true,
+          "type": "int"
+        },
+        "synthetic": {
+          "required": true,
+          "type": "bool"
+        }
+      }
+    },
+    "recovery11062example": {
+      "key": [
+        "event_id"
+      ],
+      "fields": {
+        "attempt_id": {
+          "required": true,
+          "type": "string"
+        },
+        "clock_domain": {
+          "required": true,
+          "type": "string"
+        },
+        "event_id": {
+          "required": true,
+          "type": "string"
+        },
+        "kind": {
+          "required": true,
+          "type": "string"
+        },
+        "occurred_at": {
+          "required": true,
+          "type": "string"
+        },
+        "order_id": {
+          "required": true,
+          "type": "int"
+        },
+        "precision_ms": {
+          "required": true,
+          "type": "int"
+        },
+        "sequence": {
+          "required": true,
+          "type": "int"
+        },
+        "synthetic": {
+          "required": true,
+          "type": "bool"
+        }
+      }
+    }
+  }
+}

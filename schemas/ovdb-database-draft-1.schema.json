@@ -1,0 +1,138 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://demodb.dev/ovdb/schemas/ovdb-database-draft-1.schema.json",
+  "title": "OpenVaultDB database descriptor draft 1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["format", "id", "localId", "serverId", "serverDbBaseUrl", "title", "description", "homepage", "apiUrl", "capabilities", "deployment", "model", "meaning", "publisher", "provenance", "licences", "recordsets"],
+  "properties": {
+    "format": { "const": "ovdb-database/draft-1" },
+    "id": { "$ref": "#/$defs/httpsUrl" },
+    "localId": { "type": "string", "pattern": "^[a-z][a-z0-9-]{0,39}$" },
+    "serverId": { "$ref": "#/$defs/httpsUrl" },
+    "serverDbBaseUrl": { "$ref": "#/$defs/httpsUrl" },
+    "title": { "type": "string", "minLength": 1 },
+    "description": { "type": "string", "minLength": 1 },
+    "tags": { "type": "array", "maxItems": 16, "uniqueItems": true, "items": { "type": "string", "minLength": 1, "maxLength": 64, "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" } },
+    "homepage": { "$ref": "#/$defs/httpsUrl" },
+    "apiUrl": { "$ref": "#/$defs/httpsUrl" },
+    "capabilities": {
+      "type": "object", "additionalProperties": false,
+      "required": ["read", "query", "write"],
+      "properties": {
+        "read": { "type": "boolean" }, "query": { "type": "boolean" }, "write": { "type": "boolean" }
+      }
+    },
+    "deployment": {
+      "type": "object", "additionalProperties": false,
+      "required": ["engine", "url", "discovery"],
+      "properties": {
+        "engine": { "type": "string", "minLength": 1 },
+        "url": { "$ref": "#/$defs/httpsUrl" },
+        "discovery": { "$ref": "#/$defs/httpsUrl" }
+      }
+    },
+    "model": { "$ref": "#/$defs/reference" },
+    "meaning": { "$ref": "#/$defs/reference" },
+    "publisher": {
+      "type": "object", "additionalProperties": false,
+      "required": ["name", "url", "repository"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "url": { "$ref": "#/$defs/httpsUrl" },
+        "repository": { "$ref": "#/$defs/httpsUrl" }
+      }
+    },
+    "provenance": {
+      "type": "object", "additionalProperties": false,
+      "required": ["repository", "revision", "path", "sha256", "license", "notes"],
+      "properties": {
+        "repository": { "$ref": "#/$defs/httpsUrl" },
+        "revision": { "type": "string", "minLength": 1 },
+        "path": { "type": "string", "minLength": 1 },
+        "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+        "license": { "type": "string", "minLength": 1 },
+        "notes": { "type": "string" }
+      }
+    },
+    "licences": {
+      "type": "object", "additionalProperties": false,
+      "required": ["data", "model", "meaning"],
+      "properties": {
+        "data": { "type": "string", "minLength": 1 },
+        "model": { "type": "string", "minLength": 1 },
+        "meaning": { "type": "string", "minLength": 1 }
+      }
+    },
+    "schemaUrl": { "$ref": "#/$defs/httpsUrl" },
+    "recordsets": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["name", "kind", "description", "rowCount", "columns", "primaryKey", "foreignKeys"],
+        "properties": {
+          "name": { "type": "string", "minLength": 1 },
+          "modelEntity": { "type": "string", "minLength": 1 },
+          "kind": { "enum": ["table", "view"] },
+          "description": { "type": "string" },
+          "rowCount": { "type": ["integer", "null"], "minimum": 0 },
+          "columns": {
+            "type": "array",
+            "items": {
+              "type": "object", "additionalProperties": false,
+              "required": ["name", "type", "nullable", "primaryKey", "primaryKeyPosition", "defaultValue"],
+              "properties": {
+                "name": { "type": "string", "minLength": 1 },
+                "type": { "type": "string" },
+                "nullable": { "type": "boolean" },
+                "primaryKey": { "type": "boolean" },
+                "primaryKeyPosition": { "type": ["integer", "null"], "minimum": 1 },
+                "defaultValue": { "type": ["string", "number", "null"] },
+                "decimal": {
+                  "type": "object", "additionalProperties": false,
+                  "required": ["precision", "scale", "storage"],
+                  "properties": {
+                    "precision": { "type": "integer", "minimum": 1, "maximum": 1000 },
+                    "scale": { "type": "integer", "minimum": 0, "maximum": 1000 },
+                    "storage": { "const": "text" }
+                  }
+                }
+              }
+            }
+          },
+          "primaryKey": {
+            "type": "array",
+            "items": {
+              "type": "object", "additionalProperties": false,
+              "required": ["column", "position"],
+              "properties": { "column": { "type": "string" }, "position": { "type": "integer", "minimum": 1 } }
+            }
+          },
+          "foreignKeys": {
+            "type": "array",
+            "items": {
+              "type": "object", "additionalProperties": false,
+              "required": ["column", "table", "referencedColumn", "constraint", "position"],
+              "properties": {
+                "column": { "type": "string" }, "table": { "type": "string" },
+                "referencedColumn": { "type": "string" }, "constraint": { "type": "integer", "minimum": 0 },
+                "position": { "type": "integer", "minimum": 0 }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "httpsUrl": { "type": "string", "pattern": "^https://[^\\s]+$" },
+    "reference": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "url"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 }, "url": { "$ref": "#/$defs/httpsUrl" },
+        "hclUrl": { "$ref": "#/$defs/httpsUrl" }
+      }
+    }
+  }
+}

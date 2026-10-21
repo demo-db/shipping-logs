@@ -1,0 +1,469 @@
+{
+  "contractVersion": 1,
+  "manifest": {
+    "contractVersion": 1,
+    "id": "shipping-logs",
+    "name": "Shipping original logs",
+    "description": "Original immutable synthetic JSONL inGitDB collections. Baseline observations and two explicitly labelled future replay examples remain separate.",
+    "domain": "Synthetic logistics training",
+    "siteHost": "shipping-logs.demodb.dev",
+    "aliases": [],
+    "source": {
+      "repository": "https://github.com/datatug/datatug-demo-project",
+      "revision": "cb841345e88d01229857b2bdb51cc07f4ef4bec7",
+      "introducedRevision": "38a51dda39d988f2d2bcf23703bd1a969d49f4a3",
+      "path": "demo-project-1/fixtures/shipping/manifest.json",
+      "license": "CC0-1.0",
+      "licenseFile": "LICENSE",
+      "notes": "Public synthetic training companion to Northwind; no real shipment or partner call is represented.",
+      "files": {
+        "baseline": {
+          "path": "ingitdb/collections/baseline/records.jsonl",
+          "sourcePath": "demo-project-1/fixtures/shipping/logs/base.jsonl",
+          "sha256": "5814c09c2821dcf5fb7c313d4416fadd71f62519ab8aafe01de0ac6e6a4db65e",
+          "bytes": 6873,
+          "rowCount": 29,
+          "classification": "baseline"
+        },
+        "recovery11045example": {
+          "path": "ingitdb/collections/recovery11045example/records.jsonl",
+          "sourcePath": "demo-project-1/fixtures/shipping/logs/recovery-11045.jsonl",
+          "sha256": "a03031230dfad126783e557b61631f1173dd6c5867f19e2758e971ffea716379",
+          "bytes": 704,
+          "rowCount": 3,
+          "classification": "recovery-example"
+        },
+        "recovery11062example": {
+          "path": "ingitdb/collections/recovery11062example/records.jsonl",
+          "sourcePath": "demo-project-1/fixtures/shipping/logs/recovery-11062.jsonl",
+          "sha256": "ab668b7a26e034d80486f6ea1d17f89c9b226f3a98e297bb3b80186cc65936a5",
+          "bytes": 704,
+          "rowCount": 3,
+          "classification": "recovery-example"
+        }
+      },
+      "sha256": "fd9c22c47ea5ab589e4e0b00a6bb2b86de6046a678d078684f7feb8422878ab1"
+    },
+    "semantics": {},
+    "queries": [],
+    "capabilities": {
+      "exports": [
+        "ingitdb",
+        "jsonl"
+      ],
+      "ovdb": {
+        "available": true,
+        "canonicalUrl": "https://demodb.dev/shipping-logs/",
+        "serverId": "https://demodb.dev/ovdb",
+        "serverDbBaseUrl": "https://demodb.dev/ovdb/db/shipping-logs/",
+        "connection": "https://demodb.dev/ovdb/v1/databases/shipping-logs",
+        "query": true,
+        "readOnly": true,
+        "deploymentVerified": false
+      },
+      "datatug": {
+        "available": false
+      }
+    },
+    "generator": {
+      "publisher": {
+        "name": "DemoDB",
+        "url": "https://demodb.dev",
+        "repository": "https://github.com/demo-db/shipping-logs"
+      },
+      "licences": {
+        "model": "CC0-1.0",
+        "meaning": "CC0-1.0"
+      },
+      "emitModelSpdxLicense": true,
+      "model": {
+        "address": "modelspec://github.com/demo-db/shipping-logs/0.1.0",
+        "moduleId": "shipping-logs",
+        "name": "shipping_logs",
+        "version": "0.1.0"
+      },
+      "meaning": {
+        "id": "shipping-logs",
+        "address": "meaning://github.com/demo-db/shipping-logs",
+        "name": "Shipping original logs",
+        "description": "Original immutable synthetic JSONL inGitDB collections. Baseline observations and two explicitly labelled future replay examples remain separate.",
+        "license": "CC0-1.0",
+        "core": {
+          "address": "meaning://github.com/meaninggraph/core",
+          "revision": "982916d73f0a35ff2558b0062f58aa3ac4f24d97"
+        },
+        "concepts": []
+      },
+      "ovdb": {
+        "query": true,
+        "deployment": {
+          "engine": "openvaultdb-go",
+          "url": "https://cloud.openvaultdb.com/ovdb/db/shipping-logs",
+          "discovery": "https://shipping-logs.demodb.dev/.well-known/openvaultdb"
+        },
+        "recordsets": [
+          "baseline",
+          "recovery11045example",
+          "recovery11062example"
+        ]
+      }
+    },
+    "storage": {
+      "engine": "ingitdb",
+      "path": "ingitdb"
+    },
+    "dataFile": "source-manifest.json"
+  },
+  "schema": {
+    "contractVersion": 1,
+    "database": {
+      "id": "shipping-logs",
+      "name": "Shipping original logs"
+    },
+    "source": {
+      "repository": "https://github.com/datatug/datatug-demo-project",
+      "revision": "cb841345e88d01229857b2bdb51cc07f4ef4bec7",
+      "introducedRevision": "38a51dda39d988f2d2bcf23703bd1a969d49f4a3",
+      "path": "demo-project-1/fixtures/shipping/manifest.json",
+      "license": "CC0-1.0",
+      "licenseFile": "LICENSE",
+      "notes": "Public synthetic training companion to Northwind; no real shipment or partner call is represented.",
+      "files": {
+        "baseline": {
+          "path": "ingitdb/collections/baseline/records.jsonl",
+          "sourcePath": "demo-project-1/fixtures/shipping/logs/base.jsonl",
+          "sha256": "5814c09c2821dcf5fb7c313d4416fadd71f62519ab8aafe01de0ac6e6a4db65e",
+          "bytes": 6873,
+          "rowCount": 29,
+          "classification": "baseline"
+        },
+        "recovery11045example": {
+          "path": "ingitdb/collections/recovery11045example/records.jsonl",
+          "sourcePath": "demo-project-1/fixtures/shipping/logs/recovery-11045.jsonl",
+          "sha256": "a03031230dfad126783e557b61631f1173dd6c5867f19e2758e971ffea716379",
+          "bytes": 704,
+          "rowCount": 3,
+          "classification": "recovery-example"
+        },
+        "recovery11062example": {
+          "path": "ingitdb/collections/recovery11062example/records.jsonl",
+          "sourcePath": "demo-project-1/fixtures/shipping/logs/recovery-11062.jsonl",
+          "sha256": "ab668b7a26e034d80486f6ea1d17f89c9b226f3a98e297bb3b80186cc65936a5",
+          "bytes": 704,
+          "rowCount": 3,
+          "classification": "recovery-example"
+        }
+      },
+      "sha256": "fd9c22c47ea5ab589e4e0b00a6bb2b86de6046a678d078684f7feb8422878ab1"
+    },
+    "tables": [
+      {
+        "name": "baseline",
+        "kind": "table",
+        "description": "Original baseline observations",
+        "columns": [
+          {
+            "name": "attempt_id",
+            "type": "string",
+            "nullable": false,
+            "primaryKey": false,
+            "primaryKeyPosition": null,
+            "defaultValue": null
+          },
+          {
+            "name": "clock_domain",
+            "type": "string",
+            "nullable": false,
+            "primaryKey": false,
+            "primaryKeyPosition": null,
+            "defaultValue": null
+          },
+          {
+            "name": "event_id",
+            "type": "string",
+            "nullable": false,
+            "primaryKey": true,
+            "primaryKeyPosition": 1,
+            "defaultValue": null
+          },
+          {
+            "name": "kind",
+            "type": "string",
+            "nullable": false,
+            "primaryKey": false,
+            "primaryKeyPosition": null,
+            "defaultValue": null
+          },
+          {
+            "name": "occurred_at",
+            "type": "string",
+            "nullable": false,
+            "primaryKey": false,
+            "primaryKeyPosition": null,
+            "defaultValue": null
+          },
+          {
+            "name": "order_id",
+            "type": "int",
+            "nullable": false,
+            "primaryKey": false,
+            "primaryKeyPosition": null,
+            "defaultValue": null
+          },
+          {
+            "name": "precision_ms",
+            "type": "int",
+            "nullable": false,
+            "primaryKey": false,
+            "primaryKeyPosition": null,
+            "defaultValue": null
+          },
+          {
+            "name": "sequence",
+            "type": "int",
+            "nullable": false,
+            "primaryKey": false,
+            "primaryKeyPosition": null,
+            "defaultValue": null
+          },
+          {
+            "name": "synthetic",
+            "type": "bool",
+            "nullable": false,
+            "primaryKey": false,
+            "primaryKeyPosition": null,
+            "defaultValue": null
+          }
+        ],
+        "primaryKey": [
+          {
+            "column": "event_id",
+            "position": 1
+          }
+        ],
+        "foreignKeys": [],
+        "uniqueKeys": [],
+        "uniqueIndexes": [],
+        "rowCount": 29,
+        "rows": [],
+        "modelEntity": "baseline"
+      },
+      {
+        "name": "recovery11045example",
+        "kind": "table",
+        "description": "Example replay for11045, not baseline observations",
+        "columns": [
+          {
+            "name": "attempt_id",
+            "type": "string",
+            "nullable": false,
+            "primaryKey": false,
+            "primaryKeyPosition": null,
+            "defaultValue": null
+          },
+          {
+            "name": "clock_domain",
+            "type": "string",
+            "nullable": false,
+            "primaryKey": false,
+            "primaryKeyPosition": null,
+            "defaultValue": null
+          },
+          {
+            "name": "event_id",
+            "type": "string",
+            "nullable": false,
+            "primaryKey": true,
+            "primaryKeyPosition": 1,
+            "defaultValue": null
+          },
+          {
+            "name": "kind",
+            "type": "string",
+            "nullable": false,
+            "primaryKey": false,
+            "primaryKeyPosition": null,
+            "defaultValue": null
+          },
+          {
+            "name": "occurred_at",
+            "type": "string",
+            "nullable": false,
+            "primaryKey": false,
+            "primaryKeyPosition": null,
+            "defaultValue": null
+          },
+          {
+            "name": "order_id",
+            "type": "int",
+            "nullable": false,
+            "primaryKey": false,
+            "primaryKeyPosition": null,
+            "defaultValue": null
+          },
+          {
+            "name": "precision_ms",
+            "type": "int",
+            "nullable": false,
+            "primaryKey": false,
+            "primaryKeyPosition": null,
+            "defaultValue": null
+          },
+          {
+            "name": "sequence",
+            "type": "int",
+            "nullable": false,
+            "primaryKey": false,
+            "primaryKeyPosition": null,
+            "defaultValue": null
+          },
+          {
+            "name": "synthetic",
+            "type": "bool",
+            "nullable": false,
+            "primaryKey": false,
+            "primaryKeyPosition": null,
+            "defaultValue": null
+          }
+        ],
+        "primaryKey": [
+          {
+            "column": "event_id",
+            "position": 1
+          }
+        ],
+        "foreignKeys": [],
+        "uniqueKeys": [],
+        "uniqueIndexes": [],
+        "rowCount": 3,
+        "rows": [],
+        "modelEntity": "recovery11045example"
+      },
+      {
+        "name": "recovery11062example",
+        "kind": "table",
+        "description": "Example replay for11062, not baseline observations",
+        "columns": [
+          {
+            "name": "attempt_id",
+            "type": "string",
+            "nullable": false,
+            "primaryKey": false,
+            "primaryKeyPosition": null,
+            "defaultValue": null
+          },
+          {
+            "name": "clock_domain",
+            "type": "string",
+            "nullable": false,
+            "primaryKey": false,
+            "primaryKeyPosition": null,
+            "defaultValue": null
+          },
+          {
+            "name": "event_id",
+            "type": "string",
+            "nullable": false,
+            "primaryKey": true,
+            "primaryKeyPosition": 1,
+            "defaultValue": null
+          },
+          {
+            "name": "kind",
+            "type": "string",
+            "nullable": false,
+            "primaryKey": false,
+            "primaryKeyPosition": null,
+            "defaultValue": null
+          },
+          {
+            "name": "occurred_at",
+            "type": "string",
+            "nullable": false,
+            "primaryKey": false,
+            "primaryKeyPosition": null,
+            "defaultValue": null
+          },
+          {
+            "name": "order_id",
+            "type": "int",
+            "nullable": false,
+            "primaryKey": false,
+            "primaryKeyPosition": null,
+            "defaultValue": null
+          },
+          {
+            "name": "precision_ms",
+            "type": "int",
+            "nullable": false,
+            "primaryKey": false,
+            "primaryKeyPosition": null,
+            "defaultValue": null
+          },
+          {
+            "name": "sequence",
+            "type": "int",
+            "nullable": false,
+            "primaryKey": false,
+            "primaryKeyPosition": null,
+            "defaultValue": null
+          },
+          {
+            "name": "synthetic",
+            "type": "bool",
+            "nullable": false,
+            "primaryKey": false,
+            "primaryKeyPosition": null,
+            "defaultValue": null
+          }
+        ],
+        "primaryKey": [
+          {
+            "column": "event_id",
+            "position": 1
+          }
+        ],
+        "foreignKeys": [],
+        "uniqueKeys": [],
+        "uniqueIndexes": [],
+        "rowCount": 3,
+        "rows": [],
+        "modelEntity": "recovery11062example"
+      }
+    ],
+    "sourceViews": [],
+    "preview": "native-api-only"
+  },
+  "exports": [
+    {
+      "table": "baseline",
+      "format": "jsonl",
+      "path": "ingitdb/collections/baseline/records.jsonl",
+      "bytes": 6873
+    },
+    {
+      "table": "recovery11045example",
+      "format": "jsonl",
+      "path": "ingitdb/collections/recovery11045example/records.jsonl",
+      "bytes": 704
+    },
+    {
+      "table": "recovery11062example",
+      "format": "jsonl",
+      "path": "ingitdb/collections/recovery11062example/records.jsonl",
+      "bytes": 704
+    },
+    {
+      "table": null,
+      "format": "metadata",
+      "path": "source-manifest.json",
+      "bytes": 15525
+    },
+    {
+      "table": null,
+      "format": "ingitdb",
+      "path": "artifacts/shipping-logs.ingitdb.tar.gz",
+      "bytes": 1194
+    }
+  ]
+}

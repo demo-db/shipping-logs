@@ -1,0 +1,41 @@
+{
+  "format": "ovdb-manifest/draft-1",
+  "id": "shipping-logs",
+  "title": "Shipping original logs",
+  "description": "Original immutable synthetic JSONL inGitDB collections. Baseline observations and two explicitly labelled future replay examples remain separate.",
+  "homepage": "https://shipping-logs.demodb.dev/",
+  "url": "https://demodb.dev/shipping-logs/",
+  "deployment": {
+    "engine": "openvaultdb-go",
+    "url": "https://cloud.openvaultdb.com/ovdb/db/shipping-logs",
+    "discovery": "https://shipping-logs.demodb.dev/.well-known/openvaultdb"
+  },
+  "model": {
+    "address": "modelspec://github.com/demo-db/shipping-logs/0.1.0",
+    "modelspec": "model/shipping-logs.modelspec.json",
+    "hcl": "model/shipping-logs.modelspec.hcl"
+  },
+  "meaning": {
+    "file": "model/shipping-logs.meaning.yaml",
+    "graph": {
+      "id": "shipping-logs",
+      "address": "meaning://github.com/demo-db/shipping-logs"
+    }
+  },
+  "publisher": {
+    "name": "DemoDB",
+    "url": "https://demodb.dev",
+    "repository": "https://github.com/demo-db/shipping-logs"
+  },
+  "licences": {
+    "data": "CC0-1.0",
+    "model": "CC0-1.0",
+    "meaning": "CC0-1.0"
+  },
+  "recordsets": [
+    "baseline",
+    "recovery11045example",
+    "recovery11062example"
+  ],
+  "recordset_entities": {}
+}

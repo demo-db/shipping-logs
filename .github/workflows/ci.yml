@@ -1,0 +1,65 @@
+name: Validate Shipping logs provider
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  provider:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-go@7a3fe6cf4cb3a834922a1244abfce67bcef6a0c5 # v6.2.0
+        with:
+          go-version-file: go.mod
+          cache: true
+
+      - name: Install immutable native provider generator
+        env:
+          RUNNER_TEMP: ${{ runner.temp }}
+        run: |
+          set -eu
+          base="https://raw.githubusercontent.com/demo-db/websites/9cc80d98fbb63bf4c24593db4779ea4bd31ccef7"
+          curl --fail --silent --show-error --location "$base/scripts/provider-tools/generate.py" -o "$RUNNER_TEMP/generate-provider.py"
+          printf '%s  %s\n' 'b8f97f68ea4886277649fb42cf28ec7539873e695f9eebeb70c32660745b10ef' "$RUNNER_TEMP/generate-provider.py" | sha256sum --check
+          curl --fail --silent --show-error --location "$base/scripts/provider-tools/generate_ingitdb.py" -o "$RUNNER_TEMP/generate-ingitdb.py"
+          printf '%s  %s\n' 'c28bbee5becaafadf2aafc00526e7e25bdff9490cf3ece12222fd5fcf96a4eb7' "$RUNNER_TEMP/generate-ingitdb.py" | sha256sum --check
+          curl --fail --silent --show-error --location "$base/schemas/ovdb-database-draft-1.schema.json" -o "$RUNNER_TEMP/ovdb-database-draft-1.schema.json"
+          printf '%s  %s\n' '4af5dc5f48bce1bc2ba5cb6664dd2c28adcadd818c74da0e78fe428f6f6ec55b' "$RUNNER_TEMP/ovdb-database-draft-1.schema.json" | sha256sum --check
+          mkdir -p "$RUNNER_TEMP/provider-generator/scripts/provider-tools" "$RUNNER_TEMP/provider-generator/schemas"
+          cp "$RUNNER_TEMP/generate-provider.py" "$RUNNER_TEMP/provider-generator/scripts/provider-tools/generate.py"
+          cp "$RUNNER_TEMP/generate-ingitdb.py" "$RUNNER_TEMP/provider-generator/scripts/provider-tools/generate_ingitdb.py"
+          cp "$RUNNER_TEMP/ovdb-database-draft-1.schema.json" "$RUNNER_TEMP/provider-generator/schemas/ovdb-database-draft-1.schema.json"
+
+      - name: Regenerate native provider metadata and archive
+        env:
+          RUNNER_TEMP: ${{ runner.temp }}
+        run: python3 "$RUNNER_TEMP/provider-generator/scripts/provider-tools/generate_ingitdb.py" --root .
+
+      - name: Exercise native DAL queries and keyed reads
+        run: go test -count=1 ./...
+
+      - name: Publication front matter opts in to both descriptors
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          expected = "---\novdb: 1\npublish:\n  - ./ovdb.yaml\n  - ./ovdb-database.json\n---\n"
+          if not Path("OVDB.md").read_text(encoding="utf-8").startswith(expected):
+              raise SystemExit("OVDB.md must opt in to both descriptors")
+          PY
+
+      - name: Generated files are committed and current
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git status --short
+            echo "::error::provider metadata or generated artifacts are stale"
+            exit 1
+          fi
