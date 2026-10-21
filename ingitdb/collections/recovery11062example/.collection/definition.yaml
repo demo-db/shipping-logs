@@ -1,0 +1,63 @@
+{
+  "titles": {
+    "en": "Example replay for11062, not baseline observations"
+  },
+  "record_file": {
+    "name": "records.jsonl",
+    "type": "[]map[string]any",
+    "format": "jsonl"
+  },
+  "primary_key": [
+    "event_id"
+  ],
+  "columns": {
+    "attempt_id": {
+      "type": "string",
+      "required": true
+    },
+    "clock_domain": {
+      "type": "string",
+      "required": true
+    },
+    "event_id": {
+      "type": "string",
+      "required": true,
+      "min_length": 1
+    },
+    "kind": {
+      "type": "string",
+      "required": true
+    },
+    "occurred_at": {
+      "type": "string",
+      "required": true
+    },
+    "order_id": {
+      "type": "int",
+      "required": true
+    },
+    "precision_ms": {
+      "type": "int",
+      "required": true
+    },
+    "sequence": {
+      "type": "int",
+      "required": true
+    },
+    "synthetic": {
+      "type": "bool",
+      "required": true
+    }
+  },
+  "columns_order": [
+    "attempt_id",
+    "clock_domain",
+    "event_id",
+    "kind",
+    "occurred_at",
+    "order_id",
+    "precision_ms",
+    "sequence",
+    "synthetic"
+  ]
+}

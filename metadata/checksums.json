@@ -1,0 +1,81 @@
+{
+  "contractVersion": 1,
+  "files": {
+    "artifacts/shipping-logs.ingitdb.tar.gz": {
+      "sha256": "1fea6c1929cdcc6b58c71acd6fcce6910b5ba564dc4bb789bed2e6b0774f7709",
+      "bytes": 1194
+    },
+    "ingitdb/.ingitdb/root-collections.yaml": {
+      "sha256": "f42977f823a59f402dd38b73af0d90afab01437c30ce9e521a90e5364e3cd4f4",
+      "bytes": 165
+    },
+    "ingitdb/.ingitdb/settings.yaml": {
+      "sha256": "62fcca91b55bc9903f6739e86d2c749ce4fea7fe3c12475f86390d6a5bab4535",
+      "bytes": 60
+    },
+    "ingitdb/collections/baseline/.collection/definition.yaml": {
+      "sha256": "a1959947c5e12b07895ef7f01ad513b32fb8f12a4a6b7580e8f55d863e882e79",
+      "bytes": 1079
+    },
+    "ingitdb/collections/baseline/records.jsonl": {
+      "sha256": "5814c09c2821dcf5fb7c313d4416fadd71f62519ab8aafe01de0ac6e6a4db65e",
+      "bytes": 6873
+    },
+    "ingitdb/collections/recovery11045example/.collection/definition.yaml": {
+      "sha256": "2672e56ea2f10f04c613eb36924fb27ba81f4e7fe487ca26bcb0ea2318cbbfd5",
+      "bytes": 1099
+    },
+    "ingitdb/collections/recovery11045example/records.jsonl": {
+      "sha256": "a03031230dfad126783e557b61631f1173dd6c5867f19e2758e971ffea716379",
+      "bytes": 704
+    },
+    "ingitdb/collections/recovery11062example/.collection/definition.yaml": {
+      "sha256": "e8d2b2e1165a73e81ca3de88803b2643aa2584b73aee876f8a4ef73a6fcc9466",
+      "bytes": 1099
+    },
+    "ingitdb/collections/recovery11062example/records.jsonl": {
+      "sha256": "ab668b7a26e034d80486f6ea1d17f89c9b226f3a98e297bb3b80186cc65936a5",
+      "bytes": 704
+    },
+    "manifest.json": {
+      "sha256": "ec5594840c38cd7e565182f764a9a6fd6f3184292739a8d6cf30f967f6a6f16f",
+      "bytes": 3928
+    },
+    "metadata/contract.json": {
+      "sha256": "794f18f9e3b09064df94dcf9a7ea8677169b0b968b9d31feed6f98b1e7f4b937",
+      "bytes": 14236
+    },
+    "metadata/schema.json": {
+      "sha256": "84e47acd25073332abe56b667dde0f9af17be94dbe52812f69a0babfc8f4a434",
+      "bytes": 8635
+    },
+    "model/shipping-logs.meaning.yaml": {
+      "sha256": "d80e45bbcfa97dbfc164cc01ce08a9c2a60c15047984b2dcad917b3bcfce8ce9",
+      "bytes": 373
+    },
+    "model/shipping-logs.modelspec.hcl": {
+      "sha256": "e1c24353958981dfc3c1c9bd12bfb270a2e45d99ee4d0c4843704bb7ca11f960",
+      "bytes": 2109
+    },
+    "model/shipping-logs.modelspec.json": {
+      "sha256": "4844b7f727baec4512e8c60273b05629aaf24238396fdefede78681876b6f088",
+      "bytes": 2826
+    },
+    "ovdb-database.json": {
+      "sha256": "ca6a34fab46e48303f5506b4e74e15379b98daa668ebc7d510bbeaacc2ee10f2",
+      "bytes": 8588
+    },
+    "ovdb.yaml": {
+      "sha256": "784ac295fff24c5cd422549b5c454f48cf3e278b072ccae36bb4c03a9b298c2e",
+      "bytes": 1284
+    },
+    "schemas/ovdb-database-draft-1.schema.json": {
+      "sha256": "4af5dc5f48bce1bc2ba5cb6664dd2c28adcadd818c74da0e78fe428f6f6ec55b",
+      "bytes": 6001
+    },
+    "source-manifest.json": {
+      "sha256": "fd9c22c47ea5ab589e4e0b00a6bb2b86de6046a678d078684f7feb8422878ab1",
+      "bytes": 15525
+    }
+  }
+}
