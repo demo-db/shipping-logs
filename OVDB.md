@@ -7,6 +7,8 @@ publish:
 
 # Shipping logs OVDB publication
 
-The descriptors above publish the immutable native inGitDB database through
-OpenVaultDB. Original JSONL files remain the only record storage authority.
+The descriptors above configure the intended publication of the immutable
+native inGitDB database through OpenVaultDB. The endpoint remains unverified
+until the consumer deployment is complete. Original JSONL files remain the
+only record storage authority.
 

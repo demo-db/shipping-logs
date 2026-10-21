@@ -11,6 +11,7 @@
     "source": {
       "repository": "https://github.com/datatug/datatug-demo-project",
       "revision": "cb841345e88d01229857b2bdb51cc07f4ef4bec7",
+      "introducedRevision": "38a51dda39d988f2d2bcf23703bd1a969d49f4a3",
       "path": "demo-project-1/fixtures/shipping/manifest.json",
       "license": "CC0-1.0",
       "licenseFile": "LICENSE",
@@ -122,6 +123,7 @@
     "source": {
       "repository": "https://github.com/datatug/datatug-demo-project",
       "revision": "cb841345e88d01229857b2bdb51cc07f4ef4bec7",
+      "introducedRevision": "38a51dda39d988f2d2bcf23703bd1a969d49f4a3",
       "path": "demo-project-1/fixtures/shipping/manifest.json",
       "license": "CC0-1.0",
       "licenseFile": "LICENSE",
