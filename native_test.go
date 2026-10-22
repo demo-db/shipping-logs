@@ -242,7 +242,7 @@ func TestSourceManifestPinsLicenseFilesAndEntryRanges(t *testing.T) {
 	if provider.Source.IntroducedRevision != "38a51dda39d988f2d2bcf23703bd1a969d49f4a3" {
 		t.Fatalf("unexpected fixture introduction revision %q", provider.Source.IntroducedRevision)
 	}
-	manifestBytes := assertDigest("source-manifest.json", "858c9705aa867d3ae8254c0a4742766e00070eb99e601ee3801781d0c5ae77b4")
+	manifestBytes := assertDigest("source-manifest.json", "0f704dfbeeca65aa5106a93782c207fb17cb7e14fb17a2579d09c05d358a2348")
 	type sourceLog struct {
 		Path    string `json:"path"`
 		Bytes   int    `json:"bytes"`

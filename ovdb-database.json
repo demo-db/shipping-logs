@@ -34,9 +34,9 @@
   },
   "provenance": {
     "repository": "https://github.com/datatug/datatug-demo-project",
-    "revision": "489f385922b206587d8fa975c8be837e07982727",
+    "revision": "8c17604ee3f971ea70b3aa9490176e798e267d3a",
     "path": "demo-project-1/fixtures/shipping/manifest.json",
-    "sha256": "858c9705aa867d3ae8254c0a4742766e00070eb99e601ee3801781d0c5ae77b4",
+    "sha256": "0f704dfbeeca65aa5106a93782c207fb17cb7e14fb17a2579d09c05d358a2348",
     "license": "CC0-1.0",
     "notes": "Public synthetic training companion to Northwind; no real shipment or partner call is represented."
   },

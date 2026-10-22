@@ -8,7 +8,7 @@
   "aliases": [],
   "source": {
     "repository": "https://github.com/datatug/datatug-demo-project",
-    "revision": "489f385922b206587d8fa975c8be837e07982727",
+    "revision": "8c17604ee3f971ea70b3aa9490176e798e267d3a",
     "introducedRevision": "38a51dda39d988f2d2bcf23703bd1a969d49f4a3",
     "path": "demo-project-1/fixtures/shipping/manifest.json",
     "license": "CC0-1.0",
@@ -26,24 +26,24 @@
       "carrierGateway": {
         "path": "ingitdb/collections/carrierGateway/records.jsonl",
         "sourcePath": "demo-project-1/fixtures/shipping/logs/carrier-gateway.jsonl",
-        "sha256": "f1010658d247d4fbdef020af3a50fad5288f21d774f4a3d6fe5857df6b97cf88",
-        "bytes": 1140,
+        "sha256": "ed0953f3f5c195fb98a2b5425ed5e35bac5993fee19fd2b9f09242af643dd8b0",
+        "bytes": 1246,
         "rowCount": 2,
         "classification": "carrier-gateway-baseline"
       },
       "carrierGatewayRecovery11045example": {
         "path": "ingitdb/collections/carrierGatewayRecovery11045example/records.jsonl",
         "sourcePath": "demo-project-1/fixtures/shipping/logs/carrier-gateway-recovery-11045.jsonl",
-        "sha256": "4197295f1bf52256bfecece5298fbf5965ac6ad3b847e1a13f21064406250b4a",
-        "bytes": 1140,
+        "sha256": "0429ba0df5320afd4fd9ef58ff826bfef84ab49af74cf9258038fa906a808831",
+        "bytes": 1246,
         "rowCount": 2,
         "classification": "carrier-gateway-recovery-example"
       },
       "carrierGatewayRecovery11062example": {
         "path": "ingitdb/collections/carrierGatewayRecovery11062example/records.jsonl",
         "sourcePath": "demo-project-1/fixtures/shipping/logs/carrier-gateway-recovery-11062.jsonl",
-        "sha256": "7ea9303717748108600b7dc7b967a1d94735876b13ab8ef4d55861dd69d01360",
-        "bytes": 1140,
+        "sha256": "8c7e3650d226301b44599043af9330007716b5a93f7b461d4ce521ca6ad84dc2",
+        "bytes": 1246,
         "rowCount": 2,
         "classification": "carrier-gateway-recovery-example"
       },
@@ -64,7 +64,7 @@
         "classification": "recovery-example"
       }
     },
-    "sha256": "858c9705aa867d3ae8254c0a4742766e00070eb99e601ee3801781d0c5ae77b4"
+    "sha256": "0f704dfbeeca65aa5106a93782c207fb17cb7e14fb17a2579d09c05d358a2348"
   },
   "semantics": {},
   "queries": [],
