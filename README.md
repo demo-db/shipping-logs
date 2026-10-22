@@ -30,7 +30,7 @@ or snapshot is created.
 
 The JSONL files, `source-manifest.json`, and CC0-1.0 license are copied
 byte-for-byte from public `datatug/datatug-demo-project` revision
-`3f8a040fec8f807175138edd30dc3041bd7f55b8`. `manifest.json` pins the size,
+`489f385922b206587d8fa975c8be837e07982727`. `manifest.json` pins the size,
 row count, and SHA-256 of each original file. The source manifest retains the
 per-entry byte ranges and digests.
 The fixture was introduced at revision
