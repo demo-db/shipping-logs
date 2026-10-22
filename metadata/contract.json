@@ -59,7 +59,7 @@
         "connection": "https://demodb.dev/ovdb/v1/databases/shipping-logs",
         "query": true,
         "readOnly": true,
-        "deploymentVerified": false
+        "deploymentVerified": true
       },
       "datatug": {
         "available": false
