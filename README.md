@@ -2,7 +2,7 @@
 
 This repository prepares the original synthetic Shipping JSONL evidence as a
 native inGitDB database, served read-only through OpenVaultDB at
-<https://demodb.dev/ovdb/v1/databases/shipping-logs>
+<https://ovdb.demodb.dev/v1/databases/shipping-logs>
 (`capabilities.ovdb.deploymentVerified` in `manifest.json`; the endpoint
 answered on 2026-10-22 with the three original collections). The three
 carrier-gateway collections added in this revision are served once the
@@ -30,7 +30,7 @@ or snapshot is created.
 
 The JSONL files, `source-manifest.json`, and CC0-1.0 license are copied
 byte-for-byte from public `datatug/datatug-demo-project` revision
-`533aaabc08e340f0cdddb5189ea543b010276a45`. `manifest.json` pins the size,
+`3f8a040fec8f807175138edd30dc3041bd7f55b8`. `manifest.json` pins the size,
 row count, and SHA-256 of each original file. The source manifest retains the
 per-entry byte ranges and digests.
 The fixture was introduced at revision

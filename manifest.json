@@ -8,7 +8,7 @@
   "aliases": [],
   "source": {
     "repository": "https://github.com/datatug/datatug-demo-project",
-    "revision": "533aaabc08e340f0cdddb5189ea543b010276a45",
+    "revision": "3f8a040fec8f807175138edd30dc3041bd7f55b8",
     "introducedRevision": "38a51dda39d988f2d2bcf23703bd1a969d49f4a3",
     "path": "demo-project-1/fixtures/shipping/manifest.json",
     "license": "CC0-1.0",
