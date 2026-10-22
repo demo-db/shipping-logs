@@ -25,14 +25,20 @@ import (
 
 func expectedArchiveMembers() map[string]byte {
 	return map[string]byte{
-		"ingitdb/.ingitdb/root-collections.yaml":                               tar.TypeReg,
-		"ingitdb/.ingitdb/settings.yaml":                                       tar.TypeReg,
-		"ingitdb/collections/baseline/.collection/definition.yaml":             tar.TypeReg,
-		"ingitdb/collections/baseline/records.jsonl":                           tar.TypeReg,
-		"ingitdb/collections/recovery11045example/.collection/definition.yaml": tar.TypeReg,
-		"ingitdb/collections/recovery11045example/records.jsonl":               tar.TypeReg,
-		"ingitdb/collections/recovery11062example/.collection/definition.yaml": tar.TypeReg,
-		"ingitdb/collections/recovery11062example/records.jsonl":               tar.TypeReg,
+		"ingitdb/.ingitdb/root-collections.yaml":                                             tar.TypeReg,
+		"ingitdb/.ingitdb/settings.yaml":                                                     tar.TypeReg,
+		"ingitdb/collections/baseline/.collection/definition.yaml":                           tar.TypeReg,
+		"ingitdb/collections/baseline/records.jsonl":                                         tar.TypeReg,
+		"ingitdb/collections/carrierGateway/.collection/definition.yaml":                     tar.TypeReg,
+		"ingitdb/collections/carrierGateway/records.jsonl":                                   tar.TypeReg,
+		"ingitdb/collections/carrierGatewayRecovery11045example/.collection/definition.yaml": tar.TypeReg,
+		"ingitdb/collections/carrierGatewayRecovery11045example/records.jsonl":               tar.TypeReg,
+		"ingitdb/collections/carrierGatewayRecovery11062example/.collection/definition.yaml": tar.TypeReg,
+		"ingitdb/collections/carrierGatewayRecovery11062example/records.jsonl":               tar.TypeReg,
+		"ingitdb/collections/recovery11045example/.collection/definition.yaml":               tar.TypeReg,
+		"ingitdb/collections/recovery11045example/records.jsonl":                             tar.TypeReg,
+		"ingitdb/collections/recovery11062example/.collection/definition.yaml":               tar.TypeReg,
+		"ingitdb/collections/recovery11062example/records.jsonl":                             tar.TypeReg,
 	}
 }
 
@@ -163,6 +169,9 @@ func TestArchiveRejectsUnsafeAndUnexpectedMembersWithoutChangingSources(t *testi
 		"ingitdb/collections/baseline/records.jsonl",
 		"ingitdb/collections/recovery11045example/records.jsonl",
 		"ingitdb/collections/recovery11062example/records.jsonl",
+		"ingitdb/collections/carrierGateway/records.jsonl",
+		"ingitdb/collections/carrierGatewayRecovery11045example/records.jsonl",
+		"ingitdb/collections/carrierGatewayRecovery11062example/records.jsonl",
 	}
 	sources := make(map[string][]byte, len(sourcePaths))
 	for _, sourcePath := range sourcePaths {
@@ -233,35 +242,53 @@ func TestSourceManifestPinsLicenseFilesAndEntryRanges(t *testing.T) {
 	if provider.Source.IntroducedRevision != "38a51dda39d988f2d2bcf23703bd1a969d49f4a3" {
 		t.Fatalf("unexpected fixture introduction revision %q", provider.Source.IntroducedRevision)
 	}
-	manifestBytes := assertDigest("source-manifest.json", "fd9c22c47ea5ab589e4e0b00a6bb2b86de6046a678d078684f7feb8422878ab1")
+	manifestBytes := assertDigest("source-manifest.json", "0f704dfbeeca65aa5106a93782c207fb17cb7e14fb17a2579d09c05d358a2348")
+	type sourceLog struct {
+		Path    string `json:"path"`
+		Bytes   int    `json:"bytes"`
+		SHA256  string `json:"sha256"`
+		Entries map[string]struct {
+			Artifact    string `json:"artifact"`
+			ArtifactSHA string `json:"artifact_sha256"`
+			ByteStart   int    `json:"byte_start"`
+			ByteEnd     int    `json:"byte_end"`
+			EntrySHA    string `json:"entry_sha256"`
+		} `json:"entries"`
+		Classification string `json:"classification"`
+		EligibleWith   string `json:"eligibleWith"`
+	}
 	var source struct {
-		Synthetic bool `json:"synthetic"`
-		Logs      []struct {
-			Path    string `json:"path"`
-			Bytes   int    `json:"bytes"`
-			SHA256  string `json:"sha256"`
-			Entries map[string]struct {
-				Artifact    string `json:"artifact"`
-				ArtifactSHA string `json:"artifact_sha256"`
-				ByteStart   int    `json:"byte_start"`
-				ByteEnd     int    `json:"byte_end"`
-				EntrySHA    string `json:"entry_sha256"`
-			} `json:"entries"`
-		} `json:"logs"`
+		Synthetic          bool        `json:"synthetic"`
+		Logs               []sourceLog `json:"logs"`
+		CarrierGatewayLogs []sourceLog `json:"carrierGatewayLogs"`
 	}
 	if err := json.Unmarshal(manifestBytes, &source); err != nil {
 		t.Fatal(err)
 	}
-	if !source.Synthetic || len(source.Logs) != 3 {
-		t.Fatalf("unexpected source classification: synthetic=%v logs=%d", source.Synthetic, len(source.Logs))
+	if !source.Synthetic || len(source.Logs) != 3 || len(source.CarrierGatewayLogs) != 3 {
+		t.Fatalf("unexpected source classification: synthetic=%v logs=%d carrier=%d", source.Synthetic, len(source.Logs), len(source.CarrierGatewayLogs))
+	}
+	for _, log := range source.CarrierGatewayLogs {
+		want := "recovery-example"
+		if filepath.Base(log.Path) == "carrier-gateway.jsonl" {
+			want = "baseline"
+		} else if log.EligibleWith != strings.Replace(log.Path, "carrier-gateway-", "", 1) {
+			t.Fatalf("%s must become eligible only with its own replay artifact, got %q", log.Path, log.EligibleWith)
+		}
+		if log.Classification != want {
+			t.Fatalf("%s classification %q want %q", log.Path, log.Classification, want)
+		}
 	}
 
 	collections := map[string]string{
-		"base.jsonl":           "baseline",
-		"recovery-11045.jsonl": "recovery11045example",
-		"recovery-11062.jsonl": "recovery11062example",
+		"base.jsonl":                           "baseline",
+		"recovery-11045.jsonl":                 "recovery11045example",
+		"recovery-11062.jsonl":                 "recovery11062example",
+		"carrier-gateway.jsonl":                "carrierGateway",
+		"carrier-gateway-recovery-11045.jsonl": "carrierGatewayRecovery11045example",
+		"carrier-gateway-recovery-11062.jsonl": "carrierGatewayRecovery11062example",
 	}
-	for _, log := range source.Logs {
+	for _, log := range append(append([]sourceLog{}, source.Logs...), source.CarrierGatewayLogs...) {
 		collection, ok := collections[filepath.Base(log.Path)]
 		if !ok {
 			t.Fatalf("unmapped source log %q", log.Path)
@@ -404,6 +431,41 @@ func TestOriginalJSONLNativeDALReadQueryAndKeyedReopen(t *testing.T) {
 		}
 		if string(after) != string(original) {
 			t.Fatal("DAL changed original source")
+		}
+	}
+}
+
+// The carrier-gateway stream is additive: its baseline holds only the healthy
+// 11038 booking, each replay call stays in its own recovery example, and no
+// line implies package movement.
+func TestCarrierGatewayStreamIsolation(t *testing.T) {
+	for collection, order := range map[string]float64{
+		"carrierGateway":                     11038,
+		"carrierGatewayRecovery11045example": 11045,
+		"carrierGatewayRecovery11062example": 11062,
+	} {
+		data, err := os.ReadFile(filepath.Join("ingitdb", "collections", collection, "records.jsonl"))
+		if err != nil {
+			t.Fatal(err)
+		}
+		lines := strings.Split(strings.TrimSuffix(string(data), "\n"), "\n")
+		if len(lines) != 2 {
+			t.Fatalf("%s has %d lines, want request and confirmation", collection, len(lines))
+		}
+		for i, line := range lines {
+			var row map[string]any
+			if err := json.Unmarshal([]byte(line), &row); err != nil {
+				t.Fatal(err)
+			}
+			if row["order_id"] != order || row["synthetic"] != true || row["stream"] != "carrier-gateway" {
+				t.Fatalf("%s line %d: %v", collection, i, row)
+			}
+			if strings.Contains(strings.ToLower(line), "pick") {
+				t.Fatalf("%s line %d implies package movement", collection, i)
+			}
+			if i == 1 && row["booking_status"] != "booked" {
+				t.Fatalf("%s confirmation status %v", collection, row["booking_status"])
+			}
 		}
 	}
 }
