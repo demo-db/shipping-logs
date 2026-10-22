@@ -2,7 +2,7 @@
   "format": "ovdb-manifest/draft-1",
   "id": "shipping-logs",
   "title": "Shipping original logs",
-  "description": "Original immutable synthetic JSONL inGitDB collections. Baseline observations and two explicitly labelled future replay examples remain separate.",
+  "description": "Original immutable synthetic JSONL inGitDB collections. Baseline observations, a synthetic carrier-gateway stream with only healthy11038 booking, and explicitly labelled future replay examples remain separate.",
   "homepage": "https://shipping-logs.demodb.dev/",
   "url": "https://demodb.dev/shipping-logs/",
   "deployment": {
@@ -34,6 +34,9 @@
   },
   "recordsets": [
     "baseline",
+    "carrierGateway",
+    "carrierGatewayRecovery11045example",
+    "carrierGatewayRecovery11062example",
     "recovery11045example",
     "recovery11062example"
   ],

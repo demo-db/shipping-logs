@@ -2,13 +2,13 @@
   "contractVersion": 1,
   "id": "shipping-logs",
   "name": "Shipping original logs",
-  "description": "Original immutable synthetic JSONL inGitDB collections. Baseline observations and two explicitly labelled future replay examples remain separate.",
+  "description": "Original immutable synthetic JSONL inGitDB collections. Baseline observations, a synthetic carrier-gateway stream with only healthy11038 booking, and explicitly labelled future replay examples remain separate.",
   "domain": "Synthetic logistics training",
   "siteHost": "shipping-logs.demodb.dev",
   "aliases": [],
   "source": {
     "repository": "https://github.com/datatug/datatug-demo-project",
-    "revision": "cb841345e88d01229857b2bdb51cc07f4ef4bec7",
+    "revision": "533aaabc08e340f0cdddb5189ea543b010276a45",
     "introducedRevision": "38a51dda39d988f2d2bcf23703bd1a969d49f4a3",
     "path": "demo-project-1/fixtures/shipping/manifest.json",
     "license": "CC0-1.0",
@@ -22,6 +22,30 @@
         "bytes": 6873,
         "rowCount": 29,
         "classification": "baseline"
+      },
+      "carrierGateway": {
+        "path": "ingitdb/collections/carrierGateway/records.jsonl",
+        "sourcePath": "demo-project-1/fixtures/shipping/logs/carrier-gateway.jsonl",
+        "sha256": "f1010658d247d4fbdef020af3a50fad5288f21d774f4a3d6fe5857df6b97cf88",
+        "bytes": 1140,
+        "rowCount": 2,
+        "classification": "carrier-gateway-baseline"
+      },
+      "carrierGatewayRecovery11045example": {
+        "path": "ingitdb/collections/carrierGatewayRecovery11045example/records.jsonl",
+        "sourcePath": "demo-project-1/fixtures/shipping/logs/carrier-gateway-recovery-11045.jsonl",
+        "sha256": "4197295f1bf52256bfecece5298fbf5965ac6ad3b847e1a13f21064406250b4a",
+        "bytes": 1140,
+        "rowCount": 2,
+        "classification": "carrier-gateway-recovery-example"
+      },
+      "carrierGatewayRecovery11062example": {
+        "path": "ingitdb/collections/carrierGatewayRecovery11062example/records.jsonl",
+        "sourcePath": "demo-project-1/fixtures/shipping/logs/carrier-gateway-recovery-11062.jsonl",
+        "sha256": "7ea9303717748108600b7dc7b967a1d94735876b13ab8ef4d55861dd69d01360",
+        "bytes": 1140,
+        "rowCount": 2,
+        "classification": "carrier-gateway-recovery-example"
       },
       "recovery11045example": {
         "path": "ingitdb/collections/recovery11045example/records.jsonl",
@@ -40,7 +64,7 @@
         "classification": "recovery-example"
       }
     },
-    "sha256": "fd9c22c47ea5ab589e4e0b00a6bb2b86de6046a678d078684f7feb8422878ab1"
+    "sha256": "858c9705aa867d3ae8254c0a4742766e00070eb99e601ee3801781d0c5ae77b4"
   },
   "semantics": {},
   "queries": [],
@@ -84,7 +108,7 @@
       "id": "shipping-logs",
       "address": "meaning://github.com/demo-db/shipping-logs",
       "name": "Shipping original logs",
-      "description": "Original immutable synthetic JSONL inGitDB collections. Baseline observations and two explicitly labelled future replay examples remain separate.",
+      "description": "Original immutable synthetic JSONL inGitDB collections. Baseline observations, a synthetic carrier-gateway stream with only healthy11038 booking, and explicitly labelled future replay examples remain separate.",
       "license": "CC0-1.0",
       "core": {
         "address": "meaning://github.com/meaninggraph/core",
@@ -101,6 +125,9 @@
       },
       "recordsets": [
         "baseline",
+        "carrierGateway",
+        "carrierGatewayRecovery11045example",
+        "carrierGatewayRecovery11062example",
         "recovery11045example",
         "recovery11062example"
       ]

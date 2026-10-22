@@ -5,7 +5,7 @@
   "serverId": "https://demodb.dev/ovdb",
   "serverDbBaseUrl": "https://demodb.dev/ovdb/db/shipping-logs/",
   "title": "Shipping original logs",
-  "description": "Original immutable synthetic JSONL inGitDB collections. Baseline observations and two explicitly labelled future replay examples remain separate.",
+  "description": "Original immutable synthetic JSONL inGitDB collections. Baseline observations, a synthetic carrier-gateway stream with only healthy11038 booking, and explicitly labelled future replay examples remain separate.",
   "homepage": "https://shipping-logs.demodb.dev/",
   "apiUrl": "https://demodb.dev/ovdb/v1/databases/shipping-logs",
   "capabilities": {
@@ -34,9 +34,9 @@
   },
   "provenance": {
     "repository": "https://github.com/datatug/datatug-demo-project",
-    "revision": "cb841345e88d01229857b2bdb51cc07f4ef4bec7",
+    "revision": "533aaabc08e340f0cdddb5189ea543b010276a45",
     "path": "demo-project-1/fixtures/shipping/manifest.json",
-    "sha256": "fd9c22c47ea5ab589e4e0b00a6bb2b86de6046a678d078684f7feb8422878ab1",
+    "sha256": "858c9705aa867d3ae8254c0a4742766e00070eb99e601ee3801781d0c5ae77b4",
     "license": "CC0-1.0",
     "notes": "Public synthetic training companion to Northwind; no real shipment or partner call is represented."
   },
@@ -133,6 +133,534 @@
       ],
       "foreignKeys": [],
       "modelEntity": "baseline"
+    },
+    {
+      "name": "carrierGateway",
+      "kind": "table",
+      "description": "Synthetic carrier-gateway booking calls (baseline)",
+      "rowCount": 2,
+      "columns": [
+        {
+          "name": "attempt_id",
+          "type": "string",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "booking_reference",
+          "type": "string",
+          "nullable": true,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "booking_status",
+          "type": "string",
+          "nullable": true,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "carrier",
+          "type": "string",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "clock_domain",
+          "type": "string",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "correlation_id",
+          "type": "string",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "deduplication_key",
+          "type": "string",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "event_id",
+          "type": "string",
+          "nullable": false,
+          "primaryKey": true,
+          "primaryKeyPosition": 1,
+          "defaultValue": null
+        },
+        {
+          "name": "http_method",
+          "type": "string",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "http_path",
+          "type": "string",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "http_status",
+          "type": "int",
+          "nullable": true,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "kind",
+          "type": "string",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "note",
+          "type": "string",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "occurred_at",
+          "type": "string",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "order_id",
+          "type": "int",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "precision_ms",
+          "type": "int",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "request_id",
+          "type": "string",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "sequence",
+          "type": "int",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "stream",
+          "type": "string",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "synthetic",
+          "type": "bool",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        }
+      ],
+      "primaryKey": [
+        {
+          "column": "event_id",
+          "position": 1
+        }
+      ],
+      "foreignKeys": [],
+      "modelEntity": "carrierGateway"
+    },
+    {
+      "name": "carrierGatewayRecovery11045example",
+      "kind": "table",
+      "description": "Example carrier-gateway replay call for11045, not baseline observations",
+      "rowCount": 2,
+      "columns": [
+        {
+          "name": "attempt_id",
+          "type": "string",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "booking_reference",
+          "type": "string",
+          "nullable": true,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "booking_status",
+          "type": "string",
+          "nullable": true,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "carrier",
+          "type": "string",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "clock_domain",
+          "type": "string",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "correlation_id",
+          "type": "string",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "deduplication_key",
+          "type": "string",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "event_id",
+          "type": "string",
+          "nullable": false,
+          "primaryKey": true,
+          "primaryKeyPosition": 1,
+          "defaultValue": null
+        },
+        {
+          "name": "http_method",
+          "type": "string",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "http_path",
+          "type": "string",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "http_status",
+          "type": "int",
+          "nullable": true,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "kind",
+          "type": "string",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "note",
+          "type": "string",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "occurred_at",
+          "type": "string",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "order_id",
+          "type": "int",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "precision_ms",
+          "type": "int",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "request_id",
+          "type": "string",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "sequence",
+          "type": "int",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "stream",
+          "type": "string",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "synthetic",
+          "type": "bool",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        }
+      ],
+      "primaryKey": [
+        {
+          "column": "event_id",
+          "position": 1
+        }
+      ],
+      "foreignKeys": [],
+      "modelEntity": "carrierGatewayRecovery11045example"
+    },
+    {
+      "name": "carrierGatewayRecovery11062example",
+      "kind": "table",
+      "description": "Example carrier-gateway replay call for11062, not baseline observations",
+      "rowCount": 2,
+      "columns": [
+        {
+          "name": "attempt_id",
+          "type": "string",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "booking_reference",
+          "type": "string",
+          "nullable": true,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "booking_status",
+          "type": "string",
+          "nullable": true,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "carrier",
+          "type": "string",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "clock_domain",
+          "type": "string",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "correlation_id",
+          "type": "string",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "deduplication_key",
+          "type": "string",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "event_id",
+          "type": "string",
+          "nullable": false,
+          "primaryKey": true,
+          "primaryKeyPosition": 1,
+          "defaultValue": null
+        },
+        {
+          "name": "http_method",
+          "type": "string",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "http_path",
+          "type": "string",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "http_status",
+          "type": "int",
+          "nullable": true,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "kind",
+          "type": "string",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "note",
+          "type": "string",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "occurred_at",
+          "type": "string",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "order_id",
+          "type": "int",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "precision_ms",
+          "type": "int",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "request_id",
+          "type": "string",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "sequence",
+          "type": "int",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "stream",
+          "type": "string",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "synthetic",
+          "type": "bool",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        }
+      ],
+      "primaryKey": [
+        {
+          "column": "event_id",
+          "position": 1
+        }
+      ],
+      "foreignKeys": [],
+      "modelEntity": "carrierGatewayRecovery11062example"
     },
     {
       "name": "recovery11045example",

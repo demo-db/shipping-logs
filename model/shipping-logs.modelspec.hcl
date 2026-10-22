@@ -51,6 +51,309 @@ record "baseline" {
   }
 }
 
+record "carrierGateway" {
+  key = ["event_id"]
+
+  field "attempt_id" {
+    required = true
+    type = "string"
+  }
+
+  field "booking_reference" {
+    type = "string"
+  }
+
+  field "booking_status" {
+    type = "string"
+  }
+
+  field "carrier" {
+    required = true
+    type = "string"
+  }
+
+  field "clock_domain" {
+    required = true
+    type = "string"
+  }
+
+  field "correlation_id" {
+    required = true
+    type = "string"
+  }
+
+  field "deduplication_key" {
+    required = true
+    type = "string"
+  }
+
+  field "event_id" {
+    required = true
+    type = "string"
+  }
+
+  field "http_method" {
+    required = true
+    type = "string"
+  }
+
+  field "http_path" {
+    required = true
+    type = "string"
+  }
+
+  field "http_status" {
+    type = "int"
+  }
+
+  field "kind" {
+    required = true
+    type = "string"
+  }
+
+  field "note" {
+    required = true
+    type = "string"
+  }
+
+  field "occurred_at" {
+    required = true
+    type = "string"
+  }
+
+  field "order_id" {
+    required = true
+    type = "int"
+  }
+
+  field "precision_ms" {
+    required = true
+    type = "int"
+  }
+
+  field "request_id" {
+    required = true
+    type = "string"
+  }
+
+  field "sequence" {
+    required = true
+    type = "int"
+  }
+
+  field "stream" {
+    required = true
+    type = "string"
+  }
+
+  field "synthetic" {
+    required = true
+    type = "bool"
+  }
+}
+
+record "carrierGatewayRecovery11045example" {
+  key = ["event_id"]
+
+  field "attempt_id" {
+    required = true
+    type = "string"
+  }
+
+  field "booking_reference" {
+    type = "string"
+  }
+
+  field "booking_status" {
+    type = "string"
+  }
+
+  field "carrier" {
+    required = true
+    type = "string"
+  }
+
+  field "clock_domain" {
+    required = true
+    type = "string"
+  }
+
+  field "correlation_id" {
+    required = true
+    type = "string"
+  }
+
+  field "deduplication_key" {
+    required = true
+    type = "string"
+  }
+
+  field "event_id" {
+    required = true
+    type = "string"
+  }
+
+  field "http_method" {
+    required = true
+    type = "string"
+  }
+
+  field "http_path" {
+    required = true
+    type = "string"
+  }
+
+  field "http_status" {
+    type = "int"
+  }
+
+  field "kind" {
+    required = true
+    type = "string"
+  }
+
+  field "note" {
+    required = true
+    type = "string"
+  }
+
+  field "occurred_at" {
+    required = true
+    type = "string"
+  }
+
+  field "order_id" {
+    required = true
+    type = "int"
+  }
+
+  field "precision_ms" {
+    required = true
+    type = "int"
+  }
+
+  field "request_id" {
+    required = true
+    type = "string"
+  }
+
+  field "sequence" {
+    required = true
+    type = "int"
+  }
+
+  field "stream" {
+    required = true
+    type = "string"
+  }
+
+  field "synthetic" {
+    required = true
+    type = "bool"
+  }
+}
+
+record "carrierGatewayRecovery11062example" {
+  key = ["event_id"]
+
+  field "attempt_id" {
+    required = true
+    type = "string"
+  }
+
+  field "booking_reference" {
+    type = "string"
+  }
+
+  field "booking_status" {
+    type = "string"
+  }
+
+  field "carrier" {
+    required = true
+    type = "string"
+  }
+
+  field "clock_domain" {
+    required = true
+    type = "string"
+  }
+
+  field "correlation_id" {
+    required = true
+    type = "string"
+  }
+
+  field "deduplication_key" {
+    required = true
+    type = "string"
+  }
+
+  field "event_id" {
+    required = true
+    type = "string"
+  }
+
+  field "http_method" {
+    required = true
+    type = "string"
+  }
+
+  field "http_path" {
+    required = true
+    type = "string"
+  }
+
+  field "http_status" {
+    type = "int"
+  }
+
+  field "kind" {
+    required = true
+    type = "string"
+  }
+
+  field "note" {
+    required = true
+    type = "string"
+  }
+
+  field "occurred_at" {
+    required = true
+    type = "string"
+  }
+
+  field "order_id" {
+    required = true
+    type = "int"
+  }
+
+  field "precision_ms" {
+    required = true
+    type = "int"
+  }
+
+  field "request_id" {
+    required = true
+    type = "string"
+  }
+
+  field "sequence" {
+    required = true
+    type = "int"
+  }
+
+  field "stream" {
+    required = true
+    type = "string"
+  }
+
+  field "synthetic" {
+    required = true
+    type = "bool"
+  }
+}
+
 record "recovery11045example" {
   key = ["event_id"]
 

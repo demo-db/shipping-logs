@@ -49,6 +49,258 @@
         }
       }
     },
+    "carrierGateway": {
+      "key": [
+        "event_id"
+      ],
+      "fields": {
+        "attempt_id": {
+          "required": true,
+          "type": "string"
+        },
+        "booking_reference": {
+          "type": "string"
+        },
+        "booking_status": {
+          "type": "string"
+        },
+        "carrier": {
+          "required": true,
+          "type": "string"
+        },
+        "clock_domain": {
+          "required": true,
+          "type": "string"
+        },
+        "correlation_id": {
+          "required": true,
+          "type": "string"
+        },
+        "deduplication_key": {
+          "required": true,
+          "type": "string"
+        },
+        "event_id": {
+          "required": true,
+          "type": "string"
+        },
+        "http_method": {
+          "required": true,
+          "type": "string"
+        },
+        "http_path": {
+          "required": true,
+          "type": "string"
+        },
+        "http_status": {
+          "type": "int"
+        },
+        "kind": {
+          "required": true,
+          "type": "string"
+        },
+        "note": {
+          "required": true,
+          "type": "string"
+        },
+        "occurred_at": {
+          "required": true,
+          "type": "string"
+        },
+        "order_id": {
+          "required": true,
+          "type": "int"
+        },
+        "precision_ms": {
+          "required": true,
+          "type": "int"
+        },
+        "request_id": {
+          "required": true,
+          "type": "string"
+        },
+        "sequence": {
+          "required": true,
+          "type": "int"
+        },
+        "stream": {
+          "required": true,
+          "type": "string"
+        },
+        "synthetic": {
+          "required": true,
+          "type": "bool"
+        }
+      }
+    },
+    "carrierGatewayRecovery11045example": {
+      "key": [
+        "event_id"
+      ],
+      "fields": {
+        "attempt_id": {
+          "required": true,
+          "type": "string"
+        },
+        "booking_reference": {
+          "type": "string"
+        },
+        "booking_status": {
+          "type": "string"
+        },
+        "carrier": {
+          "required": true,
+          "type": "string"
+        },
+        "clock_domain": {
+          "required": true,
+          "type": "string"
+        },
+        "correlation_id": {
+          "required": true,
+          "type": "string"
+        },
+        "deduplication_key": {
+          "required": true,
+          "type": "string"
+        },
+        "event_id": {
+          "required": true,
+          "type": "string"
+        },
+        "http_method": {
+          "required": true,
+          "type": "string"
+        },
+        "http_path": {
+          "required": true,
+          "type": "string"
+        },
+        "http_status": {
+          "type": "int"
+        },
+        "kind": {
+          "required": true,
+          "type": "string"
+        },
+        "note": {
+          "required": true,
+          "type": "string"
+        },
+        "occurred_at": {
+          "required": true,
+          "type": "string"
+        },
+        "order_id": {
+          "required": true,
+          "type": "int"
+        },
+        "precision_ms": {
+          "required": true,
+          "type": "int"
+        },
+        "request_id": {
+          "required": true,
+          "type": "string"
+        },
+        "sequence": {
+          "required": true,
+          "type": "int"
+        },
+        "stream": {
+          "required": true,
+          "type": "string"
+        },
+        "synthetic": {
+          "required": true,
+          "type": "bool"
+        }
+      }
+    },
+    "carrierGatewayRecovery11062example": {
+      "key": [
+        "event_id"
+      ],
+      "fields": {
+        "attempt_id": {
+          "required": true,
+          "type": "string"
+        },
+        "booking_reference": {
+          "type": "string"
+        },
+        "booking_status": {
+          "type": "string"
+        },
+        "carrier": {
+          "required": true,
+          "type": "string"
+        },
+        "clock_domain": {
+          "required": true,
+          "type": "string"
+        },
+        "correlation_id": {
+          "required": true,
+          "type": "string"
+        },
+        "deduplication_key": {
+          "required": true,
+          "type": "string"
+        },
+        "event_id": {
+          "required": true,
+          "type": "string"
+        },
+        "http_method": {
+          "required": true,
+          "type": "string"
+        },
+        "http_path": {
+          "required": true,
+          "type": "string"
+        },
+        "http_status": {
+          "type": "int"
+        },
+        "kind": {
+          "required": true,
+          "type": "string"
+        },
+        "note": {
+          "required": true,
+          "type": "string"
+        },
+        "occurred_at": {
+          "required": true,
+          "type": "string"
+        },
+        "order_id": {
+          "required": true,
+          "type": "int"
+        },
+        "precision_ms": {
+          "required": true,
+          "type": "int"
+        },
+        "request_id": {
+          "required": true,
+          "type": "string"
+        },
+        "sequence": {
+          "required": true,
+          "type": "int"
+        },
+        "stream": {
+          "required": true,
+          "type": "string"
+        },
+        "synthetic": {
+          "required": true,
+          "type": "bool"
+        }
+      }
+    },
     "recovery11045example": {
       "key": [
         "event_id"
