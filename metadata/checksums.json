@@ -62,20 +62,20 @@
       "bytes": 704
     },
     "manifest.json": {
-      "sha256": "40e7382075e3aab13b9e0a1e7eb0c3563bcf07ef2c1568f769e25282f55ecf3c",
-      "bytes": 5475
+      "sha256": "6fb535d0484a358ad44f02127f268b8c526761ef524cd79fe3d2563b36f42f1a",
+      "bytes": 22494
     },
     "metadata/contract.json": {
-      "sha256": "520dc9b530f8f048de3b4f9df06c08e5872c53bd956f35ac3a248eee5e1e6c6b",
-      "bytes": 32784
+      "sha256": "9466535c8d1c57169a61ea80ef373b2027830de61d8dcfbcf8f7c35d56ff820d",
+      "bytes": 50734
     },
     "metadata/schema.json": {
       "sha256": "430b583f749e464d6e7b844b5578c17e6e60033d4005397e97266aef329e66a1",
       "bytes": 23905
     },
     "model/shipping-logs.meaning.yaml": {
-      "sha256": "2bf4601ef2fe0edc4fccb58905c8bc9239eca60bfc42d22b60a9120efb503a2d",
-      "bytes": 437
+      "sha256": "1d7c4ede27a4c15096000eba754f01581fc06cfd61c17e02569b96f8c0a81859",
+      "bytes": 16701
     },
     "model/shipping-logs.modelspec.hcl": {
       "sha256": "fb4b7ab405ac505f7edd6a5fca4ea97fa83a53c05a1a751e0100a23390aff6ea",
