@@ -148,7 +148,7 @@
       "labels": {
         "en": "Shipping attempt reference"
       },
-      "values-of": "meaning://github.com/demo-db/shipping/shipping-attempt?ref=e629bd76a15ed522d07e2ddd3a83fbff5f2dc38a",
+      "values-of": "meaning://github.com/demo-db/shipping/shipping-attempt?ref=03a158c07bb726ac2c4ad7f524bddf696ac2e6bb",
       "of": "shipping-log-entry",
       "bindings": [
         {
@@ -190,7 +190,7 @@
       "labels": {
         "en": "Shipping request reference"
       },
-      "values-of": "meaning://github.com/demo-db/shipping/shipping-request?ref=e629bd76a15ed522d07e2ddd3a83fbff5f2dc38a",
+      "values-of": "meaning://github.com/demo-db/shipping/shipping-request?ref=03a158c07bb726ac2c4ad7f524bddf696ac2e6bb",
       "of": "carrier-gateway-entry",
       "bindings": [
         {
@@ -213,9 +213,9 @@
     {
       "id": "order-reference",
       "kind": "attribute",
-      "description": "The Northwind order identifier associated with the log entry. Matching this identifier provides cross-dataset context, not an enforced foreign key or an automatic join.",
+      "description": "The scenario order identifier associated with the log entry. Orders 11038, 11045 and 11062 reuse Northwind order identifiers; 90001–90005 are synthetic controls that need not resolve to Northwind rows. This semantic reference creates no enforced foreign key or automatic join.",
       "labels": {
-        "en": "Northwind order reference"
+        "en": "Scenario order reference"
       },
       "values-of": "meaning://github.com/meaninggraph/core/order?ref=982916d73f0a35ff2558b0062f58aa3ac4f24d97",
       "of": "shipping-log-entry",
