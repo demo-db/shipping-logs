@@ -27,9 +27,9 @@ jobs:
           RUNNER_TEMP: ${{ runner.temp }}
         run: |
           set -eu
-          base="https://raw.githubusercontent.com/demo-db/websites/368133c8f761f07c0c6a80b0496a7d0247a1c3cc"
+          base="https://raw.githubusercontent.com/demo-db/websites/72fdf7573db3ea7d626dfd1c06a89d05d1d95585"
           curl --fail --silent --show-error --location "$base/scripts/provider-tools/generate.py" -o "$RUNNER_TEMP/generate-provider.py"
-          printf '%s  %s\n' '37db7f9ee02ab1dda6b464973a206db4c60de719fb6a1f3d9da412f99ed4866a' "$RUNNER_TEMP/generate-provider.py" | sha256sum --check
+          printf '%s  %s\n' 'c024e4815b29877eb242c82a415f86876073aa2cbaca03df2669e2a1002e3f65' "$RUNNER_TEMP/generate-provider.py" | sha256sum --check
           curl --fail --silent --show-error --location "$base/scripts/provider-tools/generate_ingitdb.py" -o "$RUNNER_TEMP/generate-ingitdb.py"
           printf '%s  %s\n' 'c28bbee5becaafadf2aafc00526e7e25bdff9490cf3ece12222fd5fcf96a4eb7' "$RUNNER_TEMP/generate-ingitdb.py" | sha256sum --check
           curl --fail --silent --show-error --location "$base/schemas/ovdb-database-draft-1.schema.json" -o "$RUNNER_TEMP/ovdb-database-draft-1.schema.json"

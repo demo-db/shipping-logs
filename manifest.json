@@ -116,10 +116,10 @@
       },
       "concepts": [
         {
-          "id": "shipping-log-entry",
+          "id": "baseline-observation",
           "kind": "entity",
-          "label": "Shipping log entry",
-          "description": "One immutable synthetic JSONL observation. Event IDs and sequences belong to their stream and attempt context; source collections keep observed baseline and future recovery examples separate.",
+          "label": "Baseline shipping observation",
+          "description": "An original baseline shipping-process observation, including the Northwind example orders and synthetic control scenarios. These records do not import future recovery examples.",
           "bindings": [
             {
               "recordset": "baseline",
@@ -127,118 +127,95 @@
             },
             {
               "recordset": "baseline",
-              "role": "identifier",
-              "property": "event_id"
-            },
-            {
-              "recordset": "carrierGateway",
-              "role": "entity"
-            },
-            {
-              "recordset": "carrierGateway",
-              "role": "identifier",
-              "property": "event_id"
-            },
-            {
-              "recordset": "carrierGatewayRecovery11045example",
-              "role": "entity"
-            },
-            {
-              "recordset": "carrierGatewayRecovery11045example",
-              "role": "identifier",
-              "property": "event_id"
-            },
-            {
-              "recordset": "carrierGatewayRecovery11062example",
-              "role": "entity"
-            },
-            {
-              "recordset": "carrierGatewayRecovery11062example",
-              "role": "identifier",
-              "property": "event_id"
-            },
-            {
-              "recordset": "recovery11045example",
-              "role": "entity"
-            },
-            {
-              "recordset": "recovery11045example",
-              "role": "identifier",
-              "property": "event_id"
-            },
-            {
-              "recordset": "recovery11062example",
-              "role": "entity"
-            },
-            {
-              "recordset": "recovery11062example",
-              "role": "identifier",
-              "property": "event_id"
+              "property": "event_id",
+              "role": "identifier"
             }
           ]
         },
         {
-          "id": "baseline-observation",
-          "kind": "entity",
-          "label": "Baseline observation",
-          "description": "An observation in the original baseline streams. The carrier-gateway baseline contains only the healthy order 11038 booking; it is not evidence that blocked orders 11045 or 11062 were booked.",
-          "bindings": [
-            {
-              "recordset": "baseline",
-              "role": "entity"
-            },
-            {
-              "recordset": "carrierGateway",
-              "role": "entity"
-            }
-          ],
-          "extends": "shipping-log-entry"
-        },
-        {
           "id": "carrier-gateway-entry",
           "kind": "entity",
-          "label": "Carrier gateway log entry",
-          "description": "A simulated outbound booking request or response in a carrier-gateway stream. These synthetic entries represent neither a real carrier API call nor physical shipping; future replay streams remain examples.",
+          "label": "Baseline carrier-gateway entry",
+          "description": "An original baseline simulated booking request or response for healthy order 11038 only. It is not a real carrier API call or evidence that blocked orders 11045 or 11062 were booked.",
           "bindings": [
             {
               "recordset": "carrierGateway",
               "role": "entity"
             },
             {
-              "recordset": "carrierGatewayRecovery11045example",
-              "role": "entity"
-            },
-            {
-              "recordset": "carrierGatewayRecovery11062example",
-              "role": "entity"
+              "recordset": "carrierGateway",
+              "property": "event_id",
+              "role": "identifier"
             }
-          ],
-          "extends": "shipping-log-entry"
+          ]
         },
         {
-          "id": "recovery-example",
+          "id": "order11045-recovery-example",
           "kind": "entity",
-          "label": "Recovery log example",
-          "description": "A separately stored illustration of a possible future replay for blocked orders 11045 or 11062. These records are not baseline observations, executed recovery evidence, or proof that the pending 11062 replay happened.",
+          "label": "Order 11045 recovery example",
+          "description": "A separately stored shipping-process entry illustrating a possible future replay for order 11045. It is not baseline observation or executed recovery evidence.",
           "bindings": [
-            {
-              "recordset": "carrierGatewayRecovery11045example",
-              "role": "entity"
-            },
-            {
-              "recordset": "carrierGatewayRecovery11062example",
-              "role": "entity"
-            },
             {
               "recordset": "recovery11045example",
               "role": "entity"
             },
             {
+              "recordset": "recovery11045example",
+              "property": "event_id",
+              "role": "identifier"
+            }
+          ]
+        },
+        {
+          "id": "order11062-recovery-example",
+          "kind": "entity",
+          "label": "Order 11062 recovery example",
+          "description": "A separately stored shipping-process entry illustrating a possible future replay for order 11062, whose replay is pending. It does not establish that the replay happened.",
+          "bindings": [
+            {
               "recordset": "recovery11062example",
               "role": "entity"
+            },
+            {
+              "recordset": "recovery11062example",
+              "property": "event_id",
+              "role": "identifier"
             }
-          ],
-          "extends": "shipping-log-entry"
+          ]
+        },
+        {
+          "id": "carrier-order11045-recovery-example",
+          "kind": "entity",
+          "label": "Order 11045 carrier example",
+          "description": "A simulated carrier-gateway entry illustrating a possible future order 11045 replay. It is not an original baseline observation, a real carrier call or proof of physical shipping.",
+          "bindings": [
+            {
+              "recordset": "carrierGatewayRecovery11045example",
+              "role": "entity"
+            },
+            {
+              "recordset": "carrierGatewayRecovery11045example",
+              "property": "event_id",
+              "role": "identifier"
+            }
+          ]
+        },
+        {
+          "id": "carrier-order11062-recovery-example",
+          "kind": "entity",
+          "label": "Order 11062 carrier example",
+          "description": "A simulated carrier-gateway entry illustrating a possible future order 11062 replay. It does not establish an executed replay, real booking or physical shipping.",
+          "bindings": [
+            {
+              "recordset": "carrierGatewayRecovery11062example",
+              "role": "entity"
+            },
+            {
+              "recordset": "carrierGatewayRecovery11062example",
+              "property": "event_id",
+              "role": "identifier"
+            }
+          ]
         },
         {
           "id": "attempt-reference",
@@ -277,7 +254,6 @@
               "property": "attempt_id"
             }
           ],
-          "of": "shipping-log-entry",
           "valuesOf": "meaning://github.com/demo-db/shipping/shipping-attempt?ref=03a158c07bb726ac2c4ad7f524bddf696ac2e6bb"
         },
         {
@@ -302,7 +278,6 @@
               "property": "request_id"
             }
           ],
-          "of": "carrier-gateway-entry",
           "valuesOf": "meaning://github.com/demo-db/shipping/shipping-request?ref=03a158c07bb726ac2c4ad7f524bddf696ac2e6bb"
         },
         {
@@ -342,7 +317,6 @@
               "property": "order_id"
             }
           ],
-          "of": "shipping-log-entry",
           "valuesOf": "meaning://github.com/meaninggraph/core/order?ref=982916d73f0a35ff2558b0062f58aa3ac4f24d97"
         },
         {
@@ -381,8 +355,7 @@
               "role": "value",
               "property": "kind"
             }
-          ],
-          "of": "shipping-log-entry"
+          ]
         },
         {
           "id": "event-time",
@@ -420,8 +393,7 @@
               "role": "value",
               "property": "occurred_at"
             }
-          ],
-          "of": "shipping-log-entry"
+          ]
         },
         {
           "id": "clock-domain",
@@ -459,8 +431,7 @@
               "role": "value",
               "property": "clock_domain"
             }
-          ],
-          "of": "shipping-log-entry"
+          ]
         },
         {
           "id": "event-sequence",
@@ -498,8 +469,7 @@
               "role": "value",
               "property": "sequence"
             }
-          ],
-          "of": "shipping-log-entry"
+          ]
         },
         {
           "id": "correlation-id",
@@ -522,8 +492,7 @@
               "role": "value",
               "property": "correlation_id"
             }
-          ],
-          "of": "carrier-gateway-entry"
+          ]
         },
         {
           "id": "booking-status",
@@ -546,8 +515,7 @@
               "role": "value",
               "property": "booking_status"
             }
-          ],
-          "of": "carrier-gateway-entry"
+          ]
         },
         {
           "id": "booking-reference",
@@ -570,8 +538,7 @@
               "role": "value",
               "property": "booking_reference"
             }
-          ],
-          "of": "carrier-gateway-entry"
+          ]
         }
       ]
     },
